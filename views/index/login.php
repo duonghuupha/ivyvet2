@@ -1,165 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta charset="utf-8" />
-		<title>IVYVET CENTER</title>
-		<meta name="description" content="User login page" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/css/roboto.css" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/font-awesome/4.5.0/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/css/fonts.googleapis.com.css" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/css/jquery.toast.css" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/css/ace.min.css" />
-		<link rel="stylesheet" href="<?php echo URL.'/public/assets' ?>/css/ace-rtl.min.css" />
-		<link rel="shortcut icon" href="<?php echo URL ?>/public/assets/images/Logo.png" />
-		<script src="<?php echo URL.'/public/assets' ?>/js/jquery-2.1.4.min.js"></script>
-		<script src="<?php echo URL.'/public/assets' ?>/js/jquery.toast.js"></script>
-		<script src="<?php echo URL.'/public' ?>/scripts/library.js"></script>
-		<script>
-			var baseUrl = '<?php echo URL ?>', url = '<?php echo $_REQUEST['url'] ?>';
-			$(document).keypress(function (e) {
-				if (e.which == 13) {
-					login();
-				}
-			});
-		</script>
-	</head>
-	<body class="login-layout light-login">
-		<div class="main-container">
-			<div class="main-content">
-				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1">
-						<div class="login-container">
-							<div class="center">
-								<h1>
-									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">IVYVET</span>
-									<span class="grey" id="id-text2">CENTER</span>
-								</h1>
-								<h4 class="blue" id="id-company-text">&copy; Trung tâm thú cưng IVYVET</h4>
-							</div>
-							<div class="space-6"></div>
-							<div class="position-relative">
-								<div id="login-box" class="login-box visible widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header blue lighter bigger">
-												<i class="ace-icon fa fa-coffee green"></i>
-												Nhập thông tin để đăng nhập
-											</h4>
-											<div class="space-6"></div>
-											<form id="login" method="post" onsubmit="login()">
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Tên đăng nhập" name="username" id="username"
-															autofocus />
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-													</label>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Mật khẩu" name="password" id="password"/>
-															<i class="ace-icon fa fa-lock"></i>
-														</span>
-													</label>
-													<div class="space"></div>
-													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> Ghi nhớ tôi</span>
-														</label>
-														<button type="button" class="width-45 pull-right btn btn-sm btn-primary"onclick="login()" >
-															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Đăng nhập</span>
-														</button>
-													</div>
-													<div class="space-4"></div>
-												</fieldset>
-											</form>
-											<div class="social-or-login center">
-												<span class="bigger-110">Social</span>
-											</div>
-											<div class="space-6"></div>
-											<div class="social-login center">
-												<a class="btn btn-primary">
-													<i class="ace-icon fa fa-facebook"></i>
-												</a>
-												<a class="btn btn-info">
-													<i class="ace-icon fa fa-twitter"></i>
-												</a>
-												<a class="btn btn-danger">
-													<i class="ace-icon fa fa-google-plus"></i>
-												</a>
-											</div>
-										</div><!-- /.widget-main -->
-										<div class="toolbar clearfix">
-											<div>
-												<a href="javascript:void(0)" data-target="#forgot-box" class="forgot-password-link">
-													Trung tâm thú cưng IVYVET - IVYVET CENTER
-												</a>
-											</div>
-										</div>
-									</div><!-- /.widget-body -->
-								</div><!-- /.login-box -->
-							</div><!-- /.position-relative -->
-							<div class="navbar-fixed-top align-right">
-								<br />
-								&nbsp;
-								<a id="btn-login-dark" href="javascript:void(0)">Tối</a>
-								&nbsp;
-								<span class="blue">/</span>
-								&nbsp;
-								<a id="btn-login-blur" href="javascript:void(0)">Xanh</a>
-								&nbsp;
-								<span class="blue">/</span>
-								&nbsp;
-								<a id="btn-login-light" href="javascript:void(0)">Sáng</a>
-								&nbsp; &nbsp; &nbsp;
-							</div>
-						</div>
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-			</div><!-- /.main-content -->
-		</div><!-- /.main-container -->
-		<script src="<?php echo URL.'/public' ?>/scripts/login.js"></script>
-		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo URL.'/styles' ?>/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script>
-		<script src="<?php echo URL.'/public/assets' ?>/js/select2.min.js"></script>
-		<script src="<?php echo URL.'/public/assets' ?>/js/bootstrap-datepicker.min.js"></script>
-		<script src="<?php echo URL.'/public/assets' ?>/js/jquery.maskedinput.min.js"></script>
-		<script src="<?php echo URL.'/public/assets' ?>/js/ace-elements.min.js"></script>
-		<script src="<?php echo URL.'/public/assets' ?>/js/ace.min.js"></script>
-		<!-- inline scripts related to this page -->
-		<script type="text/javascript">
-			//you don't need this, just used for changing background
-			jQuery(function($) {
-			 $('#btn-login-dark').on('click', function(e) {
-				$('body').attr('class', 'login-layout');
-				$('#id-text2').attr('class', 'white');
-				$('#id-company-text').attr('class', 'blue');
-				
-				e.preventDefault();
-			 });
-			 $('#btn-login-light').on('click', function(e) {
-				$('body').attr('class', 'login-layout light-login');
-				$('#id-text2').attr('class', 'grey');
-				$('#id-company-text').attr('class', 'blue');
-				
-				e.preventDefault();
-			 });
-			 $('#btn-login-blur').on('click', function(e) {
-				$('body').attr('class', 'login-layout blur-login');
-				$('#id-text2').attr('class', 'white');
-				$('#id-company-text').attr('class', 'light-blue');
-				
-				e.preventDefault();
-			 });
-			 
-			});
-		</script>
-	</body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Manager | Ivyvet</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="<?php echo URL.'/public/' ?>styles/css/roboto.css"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php echo URL.'/public/' ?>plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="<?php echo URL.'/public/' ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="<?php echo URL.'/public/' ?>dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="javascript:void(0)" class="h1"><b>Ivyvet</b> Center</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+                <form id="fm-login" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Tên đăng nhập"
+						id="username" namee="username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Mật khẩu"
+						id="password" name="password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">
+                                    Ghi nhớ
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-5">
+                            <button type="button" class="btn btn-primary btn-block">Đăng nhập</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <div class="social-auth-links text-center mt-2 mb-3">
+                    <a href="#" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i> Đăng nhập qua Facebook
+                    </a>
+                    <a href="#" class="btn btn-block btn-danger">
+                        <i class="fab fa-google-plus mr-2"></i> Đăng nhập qua Google
+                    </a>
+                </div>
+                <!-- /.social-auth-links -->
+                <p class="mb-1">
+                    <a href="javascript:void(0)">Quên mật khẩu</a>
+                </p>
+                <p class="mb-0">
+                    <a href="javascript:void(0)" class="text-center">Đăng ký thành viên mới</a>
+                </p>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="<?php echo URL.'/public/' ?>plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?php echo URL.'/public/' ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?php echo URL.'/public/' ?>dist/js/adminlte.min.js"></script>
+</body>
+
 </html>
